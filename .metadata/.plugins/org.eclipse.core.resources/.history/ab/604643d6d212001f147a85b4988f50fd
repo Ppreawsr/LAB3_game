@@ -50,7 +50,12 @@ TIM_HandleTypeDef htim2;
 /* USER CODE BEGIN PV */
 uint8_t SPIRx[10];
 uint8_t SPITx[10];
-
+uint8_t Mode;
+uint8_t Switch = 1;
+uint8_t LMode1 = 1;
+uint8_t n = 0;
+uint8_t tick = 0;
+uint8_t point = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,9 +65,10 @@ static void MX_LPUART1_UART_Init(void);
 static void MX_SPI3_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
-//void SPITxRx_Setup();
+void SPITxRx_Setup();
 void SPITxRx_readIO();
-
+void IODIRB_Setup();
+void ReadSwitch();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -104,6 +110,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   //  SPITxRx_Setup();//for mode 1,1
+  IODIRB_Setup();
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -115,7 +122,20 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	HAL_Delay(1);
-
+	SPITxRx_readIO();
+	ReadSwitch();
+	if(Switch == n && n != 0)
+	{
+		point++;
+		n = 0;
+		Mode = 1;
+		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 1);
+		SPITxRx_readIO(); // light update : off
+	}
+	else if(Mode == 0)
+	{
+		Switch = 0;
+	}
   }
   /* USER CODE END 3 */
 }
