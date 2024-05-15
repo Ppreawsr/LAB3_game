@@ -302,3 +302,36 @@ java.io.IOException: Error opening \\.\COM15 (5)
 	at org.eclipse.remote.serial.core.SerialPortConnection.getCommandShell(SerialPortConnection.java:97)
 	at org.eclipse.remote.internal.console.TerminalConsoleConnector$1.run(TerminalConsoleConnector.java:140)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.remote.console 4 0 2024-05-16 02:52:07.457
+!MESSAGE Error opening \\.\COM15 (2)
+!STACK 0
+java.io.IOException: Error opening \\.\COM15 (2)
+	at org.eclipse.cdt.serial.SerialPort.open0(Native Method)
+	at org.eclipse.cdt.serial.SerialPort.open(SerialPort.java:316)
+	at org.eclipse.remote.serial.core.SerialPortCommandShell.<init>(SerialPortCommandShell.java:34)
+	at org.eclipse.remote.serial.core.SerialPortConnection.getCommandShell(SerialPortConnection.java:97)
+	at org.eclipse.remote.internal.console.TerminalConsoleConnector$1.run(TerminalConsoleConnector.java:140)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.remote.console 4 0 2024-05-16 02:53:02.292
+!MESSAGE Error opening \\.\COM15 (2)
+!STACK 0
+java.io.IOException: Error opening \\.\COM15 (2)
+	at org.eclipse.cdt.serial.SerialPort.open0(Native Method)
+	at org.eclipse.cdt.serial.SerialPort.open(SerialPort.java:316)
+	at org.eclipse.remote.serial.core.SerialPortCommandShell.<init>(SerialPortCommandShell.java:34)
+	at org.eclipse.remote.serial.core.SerialPortConnection.getCommandShell(SerialPortConnection.java:97)
+	at org.eclipse.remote.internal.console.TerminalConsoleConnector$1.run(TerminalConsoleConnector.java:140)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.remote.console 4 0 2024-05-16 02:57:30.396
+!MESSAGE Error opening \\.\COM10 (5)
+!STACK 0
+java.io.IOException: Error opening \\.\COM10 (5)
+	at org.eclipse.cdt.serial.SerialPort.open0(Native Method)
+	at org.eclipse.cdt.serial.SerialPort.open(SerialPort.java:316)
+	at org.eclipse.remote.serial.core.SerialPortCommandShell.<init>(SerialPortCommandShell.java:34)
+	at org.eclipse.remote.serial.core.SerialPortConnection.getCommandShell(SerialPortConnection.java:97)
+	at org.eclipse.remote.internal.console.TerminalConsoleConnector$1.run(TerminalConsoleConnector.java:140)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

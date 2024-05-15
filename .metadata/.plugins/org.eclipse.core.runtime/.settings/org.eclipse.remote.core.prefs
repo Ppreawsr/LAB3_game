@@ -18,4 +18,9 @@ connections/org.eclipse.remote.serial.core.connectionType/TUNN+test/serial.byteS
 connections/org.eclipse.remote.serial.core.connectionType/TUNN+test/serial.parity=0
 connections/org.eclipse.remote.serial.core.connectionType/TUNN+test/serial.portName=COM11
 connections/org.eclipse.remote.serial.core.connectionType/TUNN+test/serial.stopBits=0
+connections/org.eclipse.remote.serial.core.connectionType/TUNNN/serial.baudRate=10
+connections/org.eclipse.remote.serial.core.connectionType/TUNNN/serial.byteSize=3
+connections/org.eclipse.remote.serial.core.connectionType/TUNNN/serial.parity=0
+connections/org.eclipse.remote.serial.core.connectionType/TUNNN/serial.portName=COM10
+connections/org.eclipse.remote.serial.core.connectionType/TUNNN/serial.stopBits=0
 eclipse.preferences.version=1
