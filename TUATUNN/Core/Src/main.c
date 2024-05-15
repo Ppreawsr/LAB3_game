@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
 #include "stdlib.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,6 +53,9 @@ uint8_t SPIRx[10];
 uint8_t SPITx[10];
 uint8_t Mode = 0;
 
+uint8_t RxBuffer[20];
+uint8_t TxBuffer[40];
+uint8_t text[]= "12345\r\n";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -65,6 +69,7 @@ static void MX_TIM2_Init(void);
 void Tuatunn();
 void SPI_Setup();
 
+void UARTPollingMethod();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -114,6 +119,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	UARTPollingMethod();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -186,7 +192,7 @@ static void MX_LPUART1_UART_Init(void)
 
   /* USER CODE END LPUART1_Init 1 */
   hlpuart1.Instance = LPUART1;
-  hlpuart1.Init.BaudRate = 115200;
+  hlpuart1.Init.BaudRate = 57600;
   hlpuart1.Init.WordLength = UART_WORDLENGTH_8B;
   hlpuart1.Init.StopBits = UART_STOPBITS_1;
   hlpuart1.Init.Parity = UART_PARITY_NONE;
@@ -386,6 +392,15 @@ void Tuatunn()
 		HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
 
 	}
+}
+
+void UARTPollingMethod()
+{
+	//return received char
+
+	sprintf((char*)TxBuffer,"Received : %s\r\n",text);
+	HAL_UART_Transmit(&hlpuart1, TxBuffer, strlen((char*)TxBuffer), 10);
+
 }
 /* USER CODE END 4 */
 
