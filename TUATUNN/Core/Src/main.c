@@ -50,6 +50,7 @@ TIM_HandleTypeDef htim2;
 /* USER CODE BEGIN PV */
 uint8_t SPIRx[10];
 uint8_t SPITx[10];
+uint8_t Mode = 0;
 
 /* USER CODE END PV */
 
@@ -61,7 +62,8 @@ static void MX_SPI3_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 //void SPITxRx_Setup();
-void SPITxRx_readIO();
+void Tuatunn();
+void SPI_Setup();
 
 /* USER CODE END PFP */
 
@@ -104,6 +106,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   //  SPITxRx_Setup();//for mode 1,1
+  SPI_Setup();
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -115,6 +118,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	HAL_Delay(1);
+	Tuatunn();
 
   }
   /* USER CODE END 3 */
@@ -351,7 +355,38 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void SPI_Setup()//at BEGIN 2
+{
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0);
+	SPITx[0] = 0b01000000;//write
+	SPITx[1] = 0x01;//spi
+	SPITx[2] = 0b00000000;
+	HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
+}
 
+void Tuatunn()
+{
+	if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_2))
+	{
+		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
+		if (Mode == 0)
+		{
+			SPITx[0] = 0b01000001;//read
+			SPITx[1] = 0x12;
+			SPITx[2] = 0;
+			Mode = 1;
+		}
+		else if(Mode == 1)
+		{
+			SPITx[0] = 0b01000000;//write
+			SPITx[1] = 0x15;//OLATB
+			//LED_From();
+			Mode = 0;
+		}
+		HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
+
+	}
+}
 /* USER CODE END 4 */
 
 /**
