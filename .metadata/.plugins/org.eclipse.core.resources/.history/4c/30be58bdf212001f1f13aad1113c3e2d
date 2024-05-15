@@ -52,11 +52,6 @@ TIM_HandleTypeDef htim2;
 uint8_t SPIRx[10];
 uint8_t SPITx[10];
 uint8_t Mode = 0;
-uint8_t Switch = 1;
-uint8_t LMode1 = 1;
-uint8_t n = 0;
-uint8_t tick = 0;
-uint8_t point = 0;
 
 uint8_t RxBuffer[20];
 uint8_t TxBuffer[40];
@@ -73,7 +68,6 @@ static void MX_TIM2_Init(void);
 //void SPITxRx_Setup();
 void Tuatunn();
 void SPI_Setup();
-void ReadSwitch();
 
 void UARTPollingMethod();
 /* USER CODE END PFP */
@@ -131,19 +125,6 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	HAL_Delay(1);
 	Tuatunn();
-	ReadSwitch();
-	if(Switch == n && n != 0)
-	{
-		point++;
-		n = 0;
-		Mode = 1;
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 1);
-		SPITxRx_readIO(); // light update : off
-	}
-	else if(Mode == 0)
-	{
-		Switch = 0;
-	}
 
   }
   /* USER CODE END 3 */
@@ -406,81 +387,11 @@ void Tuatunn()
 			SPITx[0] = 0b01000000;//write
 			SPITx[1] = 0x15;//OLATB
 			//LED_From();
-			if(n == 0 || (n >= 5 && n < 9))
-			{
-				SPITx[2] = 0xFF; //4 latter bit , 0 on 1 off
-			}
-			else if(n == 1)
-			{
-				SPITx[2] = 0b11111110;
-			}
-			else if(n == 2)
-			{
-				SPITx[2] = 0b11111101;
-			}
-			else if(n == 3)
-			{
-				SPITx[2] = 0b11111011;
-			}
-			else if(n == 4)
-			{
-				SPITx[2] = 0b11110111;
-			}
-			else if(n >= 9){
-				SPITx[2] = 0b11111111;
-			}
 			Mode = 0;
 		}
 		HAL_SPI_TransmitReceive_IT(&hspi3, SPITx, SPIRx, 3);
 
 	}
-}
-void ReadSwitch()
-{
-	if (SPIRx[2]==14)
-	{
-		Switch = 1;
-	}
-	else if (SPIRx[2]==13)
-	{
-		Switch = 2;
-	}
-	else if (SPIRx[2]==11)
-	{
-		Switch = 4;
-	}
-	else if (SPIRx[2]==7)
-	{
-		Switch = 3;
-	}
-}
-void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
-{
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 1); //CS dnSelect
-}
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-		if (htim == &htim2)
-		{
-			if(tick <300)
-			{
-				LMode1+=1;
-				if (LMode1>16)
-				{
-					LMode1 = 1;
-				}
-				if (LMode1%8 == 0)
-				{
-					n = rand() % 10;
-				}
-				tick++;
-			}
-			else
-			{
-				n = 0;
-				//send UART
-			}
-		}
 }
 
 void UARTPollingMethod()
