@@ -486,10 +486,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void UARTPollingMethod()
 {
 	//return received char
-	if(tick == 300 ){
-		tick++;
-		sprintf((char*)TxBuffer,"Got : %d\r\n", (int)point);
-		HAL_UART_Transmit(&hlpuart1, TxBuffer, strlen((char*)TxBuffer), 10);
+	if(tick >= 300){
+	sprintf((char*)TxBuffer,"Got : %d\r\n", (int)point);
+	HAL_UART_Transmit(&hlpuart1, TxBuffer, strlen((char*)TxBuffer), 10);
 	}
 }
 /* USER CODE END 4 */

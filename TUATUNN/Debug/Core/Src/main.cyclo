@@ -9,5 +9,5 @@
 ../Core/Src/main.c:438:6:ReadSwitch	5
 ../Core/Src/main.c:457:6:HAL_SPI_TxRxCpltCallback	1
 ../Core/Src/main.c:461:6:HAL_TIM_PeriodElapsedCallback	5
-../Core/Src/main.c:486:6:UARTPollingMethod	1
-../Core/Src/main.c:500:6:Error_Handler	1
+../Core/Src/main.c:486:6:UARTPollingMethod	2
+../Core/Src/main.c:501:6:Error_Handler	1
