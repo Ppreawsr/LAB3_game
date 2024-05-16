@@ -53,7 +53,7 @@ uint8_t SPIRx[10];
 uint8_t SPITx[10];
 uint8_t Mode = 0;
 uint8_t Switch = 1;
-uint8_t LMode1 = 1;
+uint8_t randomtime = 1;
 uint8_t n = 0;
 uint16_t tick = 0;
 uint8_t point = 0;
@@ -61,6 +61,7 @@ uint8_t point = 0;
 uint8_t RxBuffer[20];
 uint8_t TxBuffer[40];
 uint8_t text[]= "12345\r\n";
+uint8_t debug = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -71,11 +72,11 @@ static void MX_SPI3_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 //void SPITxRx_Setup();
-void Tuatunn();
-void SPI_Setup();
+void Tuatunn(); //operation spi
+void SPI_Setup(); //set pin LED output
 void ReadSwitch();
 
-void UARTPollingMethod();
+void UART_Transmit();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -125,7 +126,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	UARTPollingMethod();
+	UART_Transmit();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -136,12 +137,16 @@ int main(void)
 	{
 		point++;
 		n = 0;
-		Mode = 1;
+		Mode = 1; //write
+		sprintf((char*)TxBuffer,"BANG!!!!\r\n");
+		HAL_UART_Transmit(&hlpuart1, TxBuffer, strlen((char*)TxBuffer), 10);
+
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 1);
 		Tuatunn(); // light update : off
 	}
-	else if(Mode == 0)
+	else if(Mode == 0) //read
 	{
+		debug = Switch;
 		Switch = 0;
 	}
 
@@ -394,15 +399,15 @@ void Tuatunn()
 	if(HAL_GPIO_ReadPin(GPIOD,GPIO_PIN_2))
 	{
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, 0); // CS Select
-		if (Mode == 0)
+		if (Mode == 0)//button
 		{
 			SPITx[0] = 0b01000001;//read
 			SPITx[1] = 0x12;
 			SPITx[2] = 0;
 			Mode = 1;
 		}
-		else if(Mode == 1)
-		{
+		else if(Mode == 1)//LED
+			{
 			SPITx[0] = 0b01000000;//write
 			SPITx[1] = 0x15;//OLATB
 			//LED_From();
@@ -462,14 +467,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 		if (htim == &htim2)
 		{
-			if(tick <300)
+			if(tick <600)
 			{
-				LMode1+=1;
-				if (LMode1>16)
+				randomtime+=1;
+				if (randomtime>16)
 				{
-					LMode1 = 1;
+					randomtime = 1;
 				}
-				if (LMode1%8 == 0)
+				if (randomtime%8 == 0) //0.8
 				{
 					n = rand() % 10;
 				}
@@ -483,10 +488,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		}
 }
 
-void UARTPollingMethod()
+void UART_Transmit()
 {
 	//return received char
-	if(tick == 300 ){
+	if(tick == 600 ){
 		tick++;
 		sprintf((char*)TxBuffer,"Got : %d\r\n", (int)point);
 		HAL_UART_Transmit(&hlpuart1, TxBuffer, strlen((char*)TxBuffer), 10);

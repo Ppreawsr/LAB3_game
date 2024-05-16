@@ -296,3 +296,176 @@ Finished building: default.size.stdout
  
 Finished building: TUATUNN.list
  
+14:45:15 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24824	    108	   2300	  27232	   6a60	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+14:47:38 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "TUATUNN.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ppreawsr\OneDrive\Documents\GitHub\LAB3_game\TUATUNN\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TUATUNN.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TUATUNN.elf
+ 
+arm-none-eabi-size  TUATUNN.elf 
+arm-none-eabi-objdump -h -S TUATUNN.elf  > "TUATUNN.list"
+   text	   data	    bss	    dec	    hex	filename
+  24824	    108	   2300	  27232	   6a60	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+Finished building: TUATUNN.list
+ 
+14:49:55 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24824	    108	   2300	  27232	   6a60	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+14:53:54 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.d" -MT"Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "TUATUNN.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ppreawsr\OneDrive\Documents\GitHub\LAB3_game\TUATUNN\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TUATUNN.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TUATUNN.elf
+ 
+arm-none-eabi-size  TUATUNN.elf 
+arm-none-eabi-objdump -h -S TUATUNN.elf  > "TUATUNN.list"
+   text	   data	    bss	    dec	    hex	filename
+  24824	    108	   2300	  27232	   6a60	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+Finished building: TUATUNN.list
+ 
+15:03:35 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "TUATUNN.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ppreawsr\OneDrive\Documents\GitHub\LAB3_game\TUATUNN\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TUATUNN.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TUATUNN.elf
+ 
+arm-none-eabi-size  TUATUNN.elf 
+arm-none-eabi-objdump -h -S TUATUNN.elf  > "TUATUNN.list"
+   text	   data	    bss	    dec	    hex	filename
+  24836	    108	   2300	  27244	   6a6c	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+Finished building: TUATUNN.list
+ 
+15:05:41 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24836	    108	   2300	  27244	   6a6c	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+15:07:35 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24836	    108	   2300	  27244	   6a6c	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+15:10:16 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24836	    108	   2300	  27244	   6a6c	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+15:10:23 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24836	    108	   2300	  27244	   6a6c	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+15:10:52 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24836	    108	   2300	  27244	   6a6c	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+15:15:55 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:141:41: warning: too many arguments for format [-Wformat-extra-args]
+  141 |                 sprintf((char*)TxBuffer,"BANG!!!!\r\n", (int)point);
+      |                                         ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "TUATUNN.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ppreawsr\OneDrive\Documents\GitHub\LAB3_game\TUATUNN\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TUATUNN.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TUATUNN.elf
+ 
+arm-none-eabi-size  TUATUNN.elf 
+arm-none-eabi-objdump -h -S TUATUNN.elf  > "TUATUNN.list"
+   text	   data	    bss	    dec	    hex	filename
+  24896	    108	   2300	  27304	   6aa8	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+Finished building: TUATUNN.list
+ 
+15:16:13 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24896	    108	   2300	  27304	   6aa8	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+17:03:01 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "TUATUNN.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ppreawsr\OneDrive\Documents\GitHub\LAB3_game\TUATUNN\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TUATUNN.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TUATUNN.elf
+ 
+arm-none-eabi-size  TUATUNN.elf 
+arm-none-eabi-objdump -h -S TUATUNN.elf  > "TUATUNN.list"
+   text	   data	    bss	    dec	    hex	filename
+  24888	    108	   2300	  27296	   6aa0	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+Finished building: TUATUNN.list
+ 
+17:05:01 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24888	    108	   2300	  27296	   6aa0	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+17:06:45 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24888	    108	   2300	  27296	   6aa0	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+17:08:06 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24888	    108	   2300	  27296	   6aa0	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+17:08:23 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24888	    108	   2300	  27296	   6aa0	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+17:12:39 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24888	    108	   2300	  27296	   6aa0	TUATUNN.elf
+Finished building: default.size.stdout
+ 
+17:13:10 **** Incremental Build of configuration Debug for project TUATUNN ****
+make -j8 all 
+arm-none-eabi-size  TUATUNN.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24888	    108	   2300	  27296	   6aa0	TUATUNN.elf
+Finished building: default.size.stdout
+ 
